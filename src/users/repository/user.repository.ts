@@ -29,7 +29,7 @@ export class UserRepository {
     id: Types.ObjectId,
     body: object,
   ): Promise<UpdateResult | null> {
-    return this.userModel.updateOne({ id }, body).exec();
+    return this.userModel.updateOne({ _id: id }, body).exec();
   }
   async deleleOne(id: Types.ObjectId) {
     return this.userModel.updateOne({ id }).exec();
