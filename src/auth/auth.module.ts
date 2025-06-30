@@ -6,14 +6,13 @@ import { UserRepository } from '../users/repository/user.repository';
 import { MongooseModule } from '@nestjs/mongoose';
 import { User, UserSchema } from 'src/users/schemas/user.schema';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './constant';
 
 @Module({
   imports: [
     MongooseModule.forFeature([{ name: User.name, schema: UserSchema }]),
     JwtModule.register({
       global: true,
-      secret: jwtConstants.secret,
+      secret: process.env.jwtSecret,
       signOptions: { expiresIn: '3600s' },
     }),
   ],
