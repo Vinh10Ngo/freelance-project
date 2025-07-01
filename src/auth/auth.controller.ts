@@ -12,8 +12,8 @@ import { AuthService } from './auth.service';
 import { SignInDto } from './dto/sign-in.auth.dto';
 import { RegisterDto } from './dto/register.auth.dto';
 
-import { AuthGuard } from './auth.guard';
-import { AuthenticatedRequest } from './interface/request';
+import { AuthGuard } from '../common/guard/auth.guard';
+import { AuthRequest } from '../common/interfaces/auth-request.interface';
 import { ChangePasswordDto } from './dto/change-password.auth.dto';
 
 @Controller('auth')
@@ -32,7 +32,7 @@ export class AuthController {
   }
   @UseGuards(AuthGuard)
   @Get('profile')
-  getProfile(@Request() req: AuthenticatedRequest) {
+  getProfile(@Request() req: AuthRequest) {
     return req.user;
   }
   @UseGuards(AuthGuard)
