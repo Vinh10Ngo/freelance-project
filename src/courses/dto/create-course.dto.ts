@@ -18,10 +18,6 @@ export class CreateCourseDto {
   @IsString()
   description?: string;
 
-  @IsOptional()
-  @IsNumber()
-  voucher?: number;
-
   @IsNumber()
   price: number;
 

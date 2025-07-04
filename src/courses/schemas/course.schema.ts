@@ -15,8 +15,6 @@ export class Course extends Document {
   description: string;
 
   @Prop()
-  voucher: number;
-  @Prop()
   price: number;
 
   @Prop()

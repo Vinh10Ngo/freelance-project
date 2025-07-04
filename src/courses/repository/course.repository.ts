@@ -1,7 +1,7 @@
 // course.repository.ts
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { Course, CourseDocument } from '../schemas/course.chema';
+import { Course, CourseDocument } from '../schemas/course.schema';
 import { Model, UpdateResult } from 'mongoose';
 import { Types } from 'mongoose';
 
