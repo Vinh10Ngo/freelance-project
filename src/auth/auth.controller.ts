@@ -14,14 +14,11 @@ import { RegisterDto } from './dto/register.auth.dto';
 
 import { AuthGuard } from './auth.guard';
 import { AuthenticatedRequest } from './interface/request';
-import { UsersService } from 'src/users/users.service';
+import { ChangePasswordDto } from './dto/change-password.auth.dto';
 
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private authService: AuthService,
-    private usersService: UsersService,
-  ) {}
+  constructor(private authService: AuthService) {}
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
@@ -37,5 +34,10 @@ export class AuthController {
   @Get('profile')
   getProfile(@Request() req: AuthenticatedRequest) {
     return req.user;
+  }
+  @UseGuards(AuthGuard)
+  @Post('change-password')
+  changePassword(@Body() body: ChangePasswordDto) {
+    return this.authService.changePassword(body);
   }
 }
