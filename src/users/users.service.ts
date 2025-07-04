@@ -1,4 +1,4 @@
-import { Injectable, Get } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { UserRepository } from './repository/user.repository';
 import { Types } from 'mongoose';
@@ -7,7 +7,6 @@ import { Types } from 'mongoose';
 export class UsersService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  @Get()
   async findAll(): Promise<any> {
     return await this.userRepository.findAll();
   }
@@ -24,7 +23,7 @@ export class UsersService {
     return await this.userRepository.updateOne(id, updateUserDto);
   }
 
-  async delete(id: Types.ObjectId) {
+  async remove(id: Types.ObjectId) {
     return await this.userRepository.deleleOne(id);
   }
 }

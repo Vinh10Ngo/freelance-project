@@ -6,8 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UploadModule } from './upload/upload.module';
 import { ConfigModule } from '@nestjs/config';
-import { APP_GUARD } from '@nestjs/core';
-import { RolesGuard } from './common/guard/guard';
+import { CoursesModule } from './courses/courses.module';
 
 @Module({
   imports: [
@@ -20,10 +19,9 @@ import { RolesGuard } from './common/guard/guard';
     UsersModule,
     AuthModule,
     UploadModule,
+    CoursesModule,
   ],
   controllers: [AppController],
-  providers: [
-    AppService
-  ],
+  providers: [AppService],
 })
 export class AppModule {}

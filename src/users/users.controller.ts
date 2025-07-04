@@ -45,6 +45,6 @@ export class UsersController {
   @Delete(':id')
   @Roles(Role.ADMIN)
   delete(@Param('id') id: Types.ObjectId) {
-    return this.usersService.delete(id);
+    return this.usersService.remove(id);
   }
 }
