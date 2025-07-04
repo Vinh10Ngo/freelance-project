@@ -7,6 +7,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { UploadModule } from './upload/upload.module';
 import { ConfigModule } from '@nestjs/config';
 import { CoursesModule } from './courses/courses.module';
+import { ClassInCourseModule } from './class-in-course/class-in-course.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { CoursesModule } from './courses/courses.module';
     AuthModule,
     UploadModule,
     CoursesModule,
+    ClassInCourseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
