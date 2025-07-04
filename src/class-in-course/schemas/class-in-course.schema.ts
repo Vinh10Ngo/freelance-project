@@ -1,6 +1,6 @@
 // src/users/schemas/user.schema.ts
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { Document } from 'mongoose';
+import { Document, Types } from 'mongoose';
 
 @Schema()
 export class ClassInCourse extends Document {
@@ -13,6 +13,8 @@ export class ClassInCourse extends Document {
   @Prop()
   description: string;
 
+  @Prop()
+  course: Types.ObjectId[];
   @Prop()
   startDate: Date;
   @Prop()
