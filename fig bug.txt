@@ -1,2 +1,0 @@
-thêm một số tính năng 
-cách xóa db test
