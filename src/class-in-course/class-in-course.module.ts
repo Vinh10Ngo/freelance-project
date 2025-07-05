@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { ClassInCourseService } from './class-in-course.service';
 import { ClassInCourseController } from './class-in-course.controller';
-import { ClassInCourseRepository } from './repository/course.repository';
+import { ClassInCourseRepository } from './repository/class-in-course.repository';
 import { MongooseModule } from '@nestjs/mongoose';
 import {
   ClassInCourse,

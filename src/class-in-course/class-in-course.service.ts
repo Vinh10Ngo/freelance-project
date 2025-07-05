@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateClassInCourseDto } from './dto/create-class-in-course.dto';
 import { UpdateClassInCourseDto } from './dto/update-class-in-course.dto';
-import { ClassInCourseRepository } from './repository/course.repository';
+import { ClassInCourseRepository } from './repository/class-in-course.repository';
 import { Types } from 'mongoose';
 
 @Injectable()
