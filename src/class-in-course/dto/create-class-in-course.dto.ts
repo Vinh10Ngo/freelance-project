@@ -4,8 +4,8 @@ import {
   IsOptional,
   IsString,
   IsDateString,
+  IsMongoId,
 } from 'class-validator';
-import { Types } from 'mongoose';
 
 export class CreateClassInCourseDto {
   @IsString()
@@ -16,9 +16,9 @@ export class CreateClassInCourseDto {
   @IsNotEmpty()
   code: string;
 
-  @IsString()
+  @IsMongoId()
   @IsNotEmpty()
-  course: Types.ObjectId;
+  course: string;
   @IsString()
   @IsOptional()
   description?: string;

@@ -14,7 +14,7 @@ export class ClassInCourse extends Document {
   description: string;
 
   @Prop()
-  course: Types.ObjectId[];
+  course: Types.ObjectId;
   @Prop()
   startDate: Date;
   @Prop()
