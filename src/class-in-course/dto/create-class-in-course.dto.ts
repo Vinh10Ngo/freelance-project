@@ -20,7 +20,7 @@ export class CreateClassInCourseDto {
   @Transform(({ value }) => new Types.ObjectId(value))
   @IsMongoId()
   @IsNotEmpty()
-  course: string;
+  course: Types.ObjectId;
   @IsString()
   @IsOptional()
   description?: string;
