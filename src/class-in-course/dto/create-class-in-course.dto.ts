@@ -1,4 +1,3 @@
-// src/users/dto/create-class-in-course.dto.ts
 import {
   IsNotEmpty,
   IsOptional,
@@ -6,6 +5,7 @@ import {
   IsDateString,
   IsMongoId,
 } from 'class-validator';
+import { Transform } from 'class-transformer';
 
 export class CreateClassInCourseDto {
   @IsString()
@@ -16,6 +16,7 @@ export class CreateClassInCourseDto {
   @IsNotEmpty()
   code: string;
 
+  @Transform(({ value }) => new Types.ObjectId(value))
   @IsMongoId()
   @IsNotEmpty()
   course: string;
