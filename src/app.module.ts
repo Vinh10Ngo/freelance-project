@@ -9,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { CoursesModule } from './courses/courses.module';
 import { ClassInCourseModule } from './class-in-course/class-in-course.module';
 import { VoucherModule } from './voucher/voucher.module';
+import { StudentModule } from './student/student.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { VoucherModule } from './voucher/voucher.module';
     CoursesModule,
     ClassInCourseModule,
     VoucherModule,
+    StudentModule,
   ],
   controllers: [AppController],
   providers: [AppService],
