@@ -11,6 +11,7 @@ import { ClassInCourseModule } from './class-in-course/class-in-course.module';
 import { StudentModule } from './student/student.module';
 import { TeacherModule } from './teacher/teacher.module';
 import { VoucherModule } from './voucher/voucher.module';
+import { PaymentModule } from './payment/payment.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { VoucherModule } from './voucher/voucher.module';
     StudentModule,
     TeacherModule,
     VoucherModule,
+    PaymentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

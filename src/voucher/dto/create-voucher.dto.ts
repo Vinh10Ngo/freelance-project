@@ -31,8 +31,8 @@ export class CreateVoucherDto {
   @IsOptional()
   discountType?: DiscountTypeEnum = DiscountTypeEnum.PERCENTAGE;
 
-  @IsArray()
   @Transform(({ value }) => new Types.ObjectId(value))
+  @IsArray()
   @IsMongoId({ each: true })
   @IsOptional()
   courses?: Types.ObjectId[];
