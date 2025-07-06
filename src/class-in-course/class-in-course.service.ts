@@ -9,23 +9,29 @@ export class ClassInCourseService {
   constructor(
     private readonly classInCourseRepository: ClassInCourseRepository,
   ) {}
-  create(createClassInCourseDto: CreateClassInCourseDto) {
-    return this.classInCourseRepository.create(createClassInCourseDto);
+  async create(createClassInCourseDto: CreateClassInCourseDto) {
+    return await this.classInCourseRepository.create(createClassInCourseDto);
   }
 
-  findAll() {
-    return this.classInCourseRepository.findAll();
+  async findAll() {
+    return await this.classInCourseRepository.findAll();
   }
 
-  findOne(id: Types.ObjectId) {
-    return this.classInCourseRepository.findById(id);
+  async findOne(id: Types.ObjectId) {
+    return await this.classInCourseRepository.findById(id);
   }
 
-  update(id: Types.ObjectId, updateClassInCourseDto: UpdateClassInCourseDto) {
-    return this.classInCourseRepository.updateOne(id, updateClassInCourseDto);
+  async update(
+    id: Types.ObjectId,
+    updateClassInCourseDto: UpdateClassInCourseDto,
+  ) {
+    return await this.classInCourseRepository.updateOne(
+      id,
+      updateClassInCourseDto,
+    );
   }
 
-  remove(id: Types.ObjectId) {
-    return this.classInCourseRepository.deleleOne(id);
+  async remove(id: Types.ObjectId) {
+    return await this.classInCourseRepository.deleleOne(id);
   }
 }

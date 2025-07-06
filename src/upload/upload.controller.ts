@@ -20,7 +20,7 @@ export class UploadController {
     description: 'file upload',
     type: CreateUploadDto,
   })
-  uploadFile(@UploadedFile() file: Express.Multer.File) {
-    return this.uploadService.uploadFile(file);
+  async uploadFile(@UploadedFile() file: Express.Multer.File) {
+    return await this.uploadService.uploadFile(file);
   }
 }

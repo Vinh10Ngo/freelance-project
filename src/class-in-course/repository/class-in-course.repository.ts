@@ -16,28 +16,28 @@ export class ClassInCourseRepository {
   ) {}
 
   async create(data: Partial<ClassInCourse>) {
-    return this.classInCourseModel.create(data);
+    return await this.classInCourseModel.create(data);
   }
 
   async findAll() {
-    return this.classInCourseModel.find().exec();
+    return await this.classInCourseModel.find().exec();
   }
 
   async findById(id: Types.ObjectId): Promise<ClassInCourseDocument | null> {
-    return this.classInCourseModel.findOne({ id }).exec();
+    return await this.classInCourseModel.findOne({ id }).exec();
   }
 
   async findByOneEmail(email: string): Promise<ClassInCourseDocument | null> {
-    return this.classInCourseModel.findOne({ email: email }).exec();
+    return await this.classInCourseModel.findOne({ email: email }).exec();
   }
 
   async updateOne(
     id: Types.ObjectId,
     body: object,
   ): Promise<UpdateResult | null> {
-    return this.classInCourseModel.updateOne({ _id: id }, body).exec();
+    return await this.classInCourseModel.updateOne({ _id: id }, body).exec();
   }
   async deleleOne(id: Types.ObjectId) {
-    return this.classInCourseModel.updateOne({ id }).exec();
+    return await this.classInCourseModel.updateOne({ id }).exec();
   }
 }

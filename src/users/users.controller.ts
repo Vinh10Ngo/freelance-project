@@ -23,28 +23,28 @@ export class UsersController {
 
   @Get('')
   @Roles(Role.ADMIN, Role.USER)
-  findAll() {
-    return this.usersService.findAll();
+  async findAll() {
+    return await this.usersService.findAll();
   }
 
   @Get(':id')
   @Roles(Role.ADMIN, Role.USER)
-  findOne(@Param('id') id: Types.ObjectId) {
-    return this.usersService.findOne(id);
+  async findOne(@Param('id') id: Types.ObjectId) {
+    return await this.usersService.findOne(id);
   }
 
   @Put(':id')
   @Roles(Role.ADMIN, Role.USER)
-  update(
+  async update(
     @Param('id') id: Types.ObjectId,
     @Body() updateUserDto: UpdateUserDto,
   ) {
-    return this.usersService.update(id, updateUserDto);
+    return await this.usersService.update(id, updateUserDto);
   }
 
   @Delete(':id')
   @Roles(Role.ADMIN)
-  delete(@Param('id') id: Types.ObjectId) {
-    return this.usersService.remove(id);
+  async delete(@Param('id') id: Types.ObjectId) {
+    return await this.usersService.remove(id);
   }
 }

@@ -7,7 +7,7 @@ import { Types } from 'mongoose';
 export class UsersService {
   constructor(private readonly userRepository: UserRepository) {}
 
-  async findAll(): Promise<any> {
+  async findAll() {
     return await this.userRepository.findAll();
   }
 

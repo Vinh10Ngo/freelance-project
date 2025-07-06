@@ -10,28 +10,28 @@ export class CourseRepository {
   constructor(@InjectModel(Course.name) private courseModel: Model<Course>) {}
 
   async create(data: Partial<Course>) {
-    return this.courseModel.create(data);
+    return await this.courseModel.create(data);
   }
 
   async findAll() {
-    return this.courseModel.find().exec();
+    return await this.courseModel.find().exec();
   }
 
   async findById(id: Types.ObjectId): Promise<CourseDocument | null> {
-    return this.courseModel.findOne({ id }).exec();
+    return await this.courseModel.findOne({ id }).exec();
   }
 
   async findByOneEmail(email: string): Promise<CourseDocument | null> {
-    return this.courseModel.findOne({ email: email }).exec();
+    return await this.courseModel.findOne({ email: email }).exec();
   }
 
   async updateOne(
     id: Types.ObjectId,
     body: object,
   ): Promise<UpdateResult | null> {
-    return this.courseModel.updateOne({ _id: id }, body).exec();
+    return await this.courseModel.updateOne({ _id: id }, body).exec();
   }
   async deleleOne(id: Types.ObjectId) {
-    return this.courseModel.updateOne({ id }).exec();
+    return await this.courseModel.updateOne({ id }).exec();
   }
 }

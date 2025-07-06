@@ -22,13 +22,13 @@ export class AuthController {
 
   @HttpCode(HttpStatus.OK)
   @Post('login')
-  signIn(@Body() signInDto: SignInDto) {
-    return this.authService.signIn(signInDto.email, signInDto.password);
+  async signIn(@Body() signInDto: SignInDto) {
+    return await this.authService.signIn(signInDto.email, signInDto.password);
   }
   @HttpCode(HttpStatus.OK)
   @Post('register')
-  register(@Body() registerDto: RegisterDto) {
-    return this.authService.register(registerDto);
+  async register(@Body() registerDto: RegisterDto) {
+    return await this.authService.register(registerDto);
   }
   @UseGuards(AuthGuard)
   @Get('profile')
@@ -37,7 +37,7 @@ export class AuthController {
   }
   @UseGuards(AuthGuard)
   @Post('change-password')
-  changePassword(@Body() body: ChangePasswordDto) {
-    return this.authService.changePassword(body);
+  async changePassword(@Body() body: ChangePasswordDto) {
+    return await this.authService.changePassword(body);
   }
 }

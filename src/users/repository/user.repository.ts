@@ -10,28 +10,28 @@ export class UserRepository {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async create(data: Partial<User>) {
-    return this.userModel.create(data);
+    return await this.userModel.create(data);
   }
 
   async findAll() {
-    return this.userModel.find().exec();
+    return await this.userModel.find().exec();
   }
 
   async findById(id: Types.ObjectId): Promise<UserDocument | null> {
-    return this.userModel.findOne({ id }).exec();
+    return await this.userModel.findOne({ id }).exec();
   }
 
   async findByOneEmail(email: string): Promise<UserDocument | null> {
-    return this.userModel.findOne({ email: email }).exec();
+    return await this.userModel.findOne({ email: email }).exec();
   }
 
   async updateOne(
     id: Types.ObjectId,
     body: object,
   ): Promise<UpdateResult | null> {
-    return this.userModel.updateOne({ _id: id }, body).exec();
+    return await this.userModel.updateOne({ _id: id }, body).exec();
   }
   async deleleOne(id: Types.ObjectId) {
-    return this.userModel.updateOne({ id }).exec();
+    return await this.userModel.updateOne({ id }).exec();
   }
 }

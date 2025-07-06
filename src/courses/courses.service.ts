@@ -7,23 +7,23 @@ import { Types } from 'mongoose';
 @Injectable()
 export class CoursesService {
   constructor(private readonly courseRepository: CourseRepository) {}
-  create(createCourseDto: CreateCourseDto) {
-    return this.courseRepository.create(createCourseDto);
+  async create(createCourseDto: CreateCourseDto) {
+    return await this.courseRepository.create(createCourseDto);
   }
 
-  async findAll(): Promise<any> {
+  async findAll() {
     return await this.courseRepository.findAll();
   }
 
-  findOne(id: Types.ObjectId) {
-    return this.courseRepository.findById(id);
+  async findOne(id: Types.ObjectId) {
+    return await this.courseRepository.findById(id);
   }
 
-  update(id: Types.ObjectId, updateCourseDto: UpdateCourseDto) {
-    return this.courseRepository.updateOne(id, updateCourseDto);
+  async update(id: Types.ObjectId, updateCourseDto: UpdateCourseDto) {
+    return await this.courseRepository.updateOne(id, updateCourseDto);
   }
 
-  remove(id: Types.ObjectId) {
-    return this.courseRepository.deleleOne(id);
+  async remove(id: Types.ObjectId) {
+    return await this.courseRepository.deleleOne(id);
   }
 }

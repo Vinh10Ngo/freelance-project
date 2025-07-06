@@ -17,30 +17,30 @@ export class ClassInCourseController {
   constructor(private readonly classInCourseService: ClassInCourseService) {}
 
   @Post()
-  create(@Body() createClassInCourseDto: CreateClassInCourseDto) {
-    return this.classInCourseService.create(createClassInCourseDto);
+  async create(@Body() createClassInCourseDto: CreateClassInCourseDto) {
+    return await this.classInCourseService.create(createClassInCourseDto);
   }
 
   @Get()
-  findAll() {
-    return this.classInCourseService.findAll();
+  async findAll() {
+    return await this.classInCourseService.findAll();
   }
 
   @Get(':id')
-  findOne(@Param('id') id: Types.ObjectId) {
-    return this.classInCourseService.findOne(id);
+  async findOne(@Param('id') id: Types.ObjectId) {
+    return await this.classInCourseService.findOne(id);
   }
 
   @Put(':id')
-  update(
+  async update(
     @Param('id') id: Types.ObjectId,
     @Body() updateClassInCourseDto: UpdateClassInCourseDto,
   ) {
-    return this.classInCourseService.update(id, updateClassInCourseDto);
+    return await this.classInCourseService.update(id, updateClassInCourseDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: Types.ObjectId) {
-    return this.classInCourseService.remove(id);
+  async remove(@Param('id') id: Types.ObjectId) {
+    return await this.classInCourseService.remove(id);
   }
 }

@@ -35,7 +35,7 @@ export class AuthService {
       access_token: await this.jwtService.signAsync(payload),
     };
   }
-  async register(data: RegisterDto): Promise<any> {
+  async register(data: RegisterDto) {
     const saltOrRounds = 10;
     const hash = await bcrypt.hash(data.password, saltOrRounds);
 
@@ -46,7 +46,7 @@ export class AuthService {
 
     return createdData;
   }
-  async changePassword(body: ChangePasswordDto): Promise<any> {
+  async changePassword(body: ChangePasswordDto) {
     const user = await this.userRepository.findByOneEmail(body.email);
     if (!user) {
       throw new NotFoundException('Không tìm thấy người dùng');
