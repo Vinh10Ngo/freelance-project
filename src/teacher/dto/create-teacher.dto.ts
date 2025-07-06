@@ -7,7 +7,6 @@ import {
   IsString,
   IsDateString,
 } from 'class-validator';
-import { Types } from 'mongoose';
 import { GenderEnum } from 'src/common/enums/gender.enum';
 
 export class CreateTeacherDto {
@@ -31,7 +30,7 @@ export class CreateTeacherDto {
   @IsOptional()
   address?: string;
 
-  @Transform(({ value }) => new Types.ObjectId(value))
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   @IsOptional()
   dateOfBirth?: Date;

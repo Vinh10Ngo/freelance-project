@@ -50,7 +50,7 @@ export class CreateVoucherDto {
   @IsDateString()
   @IsNotEmpty()
   startDate: Date;
-
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   @IsOptional()
   endDate?: Date;

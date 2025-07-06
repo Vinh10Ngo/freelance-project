@@ -26,7 +26,7 @@ export class CreateStudentDto {
   @IsOptional()
   gender?: GenderEnum;
 
-  @Transform(({ value }) => new Types.ObjectId(value))
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   @IsOptional()
   dateOfBirth?: Date;

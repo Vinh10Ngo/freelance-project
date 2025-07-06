@@ -25,9 +25,10 @@ export class CreateClassInCourseDto {
   @IsOptional()
   description?: string;
 
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   startDate: Date;
-
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   endDate?: Date;
 }

@@ -1,3 +1,4 @@
+import { Transform } from 'class-transformer';
 import {
   IsDateString,
   IsNotEmpty,
@@ -20,10 +21,10 @@ export class CreateCourseDto {
 
   @IsNumber()
   price: number;
-
+  @Transform(({ value }) => new Date(value))
   @IsDateString()
   startDate: Date;
-
+  @Transform(({ value }) => new Date(value))
   @IsOptional()
   @IsDateString()
   endDate?: Date;
