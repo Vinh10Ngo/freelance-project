@@ -8,6 +8,7 @@ import { UploadModule } from './upload/upload.module';
 import { ConfigModule } from '@nestjs/config';
 import { CoursesModule } from './courses/courses.module';
 import { ClassInCourseModule } from './class-in-course/class-in-course.module';
+import { VoucherModule } from './voucher/voucher.module';
 
 @Module({
   imports: [
@@ -22,6 +23,7 @@ import { ClassInCourseModule } from './class-in-course/class-in-course.module';
     UploadModule,
     CoursesModule,
     ClassInCourseModule,
+    VoucherModule,
   ],
   controllers: [AppController],
   providers: [AppService],
