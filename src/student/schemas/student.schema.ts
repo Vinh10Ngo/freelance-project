@@ -26,14 +26,14 @@ export class Student {
   @Prop()
   address?: string;
 
-  @Prop()
+  @Prop({ type: [Types.ObjectId], ref: 'ClassInCourse' })
   classInCourse?: Types.ObjectId[];
 
-  @Prop()
+  @Prop({ type: [Types.ObjectId], ref: 'Course' })
   course?: Types.ObjectId[];
 
-  @Prop()
-  vouchers: Types.ObjectId[];
+  @Prop({ type: [Types.ObjectId], ref: 'Voucher' })
+  voucher: Types.ObjectId[];
 
   @Prop({ default: true })
   isActive: boolean;

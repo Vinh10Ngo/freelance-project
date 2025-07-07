@@ -20,7 +20,12 @@ export class StudentRepository {
   }
 
   async findById(id: Types.ObjectId): Promise<StudentDocument | null> {
-    return await this.studentModel.findOne({ id }).exec();
+    return await this.studentModel
+      .findById(id)
+      .populate('course')
+      .populate('classInCourse')
+      .populate('voucher')
+      .exec();
   }
 
   async findByOneEmail(email: string): Promise<StudentDocument | null> {
