@@ -35,7 +35,7 @@ export class CreateVoucherDto {
   @IsArray()
   @IsMongoId({ each: true })
   @IsOptional()
-  courses?: Types.ObjectId[];
+  course?: Types.ObjectId[];
 
   @IsNumber()
   @IsOptional()

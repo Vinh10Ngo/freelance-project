@@ -20,7 +20,7 @@ export class VoucherRepository {
   }
 
   async findById(id: Types.ObjectId): Promise<VoucherDocument | null> {
-    return await this.voucherModel.findOne({ id }).exec();
+    return await this.voucherModel.findById(id).populate('course').exec();
   }
 
   async findByOneEmail(email: string): Promise<VoucherDocument | null> {

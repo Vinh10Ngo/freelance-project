@@ -13,8 +13,8 @@ export class Voucher extends Document {
   discountValue: number;
   @Prop({ enum: DiscountTypeEnum, default: DiscountTypeEnum.PERCENTAGE })
   discountType: DiscountTypeEnum;
-  @Prop()
-  courses: Types.ObjectId[];
+  @Prop({ type: [Types.ObjectId], ref: 'Course' })
+  course: Types.ObjectId[];
   @Prop({ default: 0 })
   usageCount: number;
 
