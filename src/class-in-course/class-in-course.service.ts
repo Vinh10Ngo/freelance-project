@@ -34,4 +34,7 @@ export class ClassInCourseService {
   async remove(id: Types.ObjectId) {
     return await this.classInCourseRepository.deleleOne(id);
   }
+  async aggregate(pipelines) {
+    return await this.classInCourseRepository.aggregate(pipelines);
+  }
 }

@@ -26,4 +26,7 @@ export class CourseService {
   async remove(id: Types.ObjectId) {
     return await this.courseRepository.deleleOne(id);
   }
+  async aggregate(pipelines) {
+    return await this.courseRepository.aggregate(pipelines);
+  }
 }

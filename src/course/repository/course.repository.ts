@@ -34,4 +34,7 @@ export class CourseRepository {
   async deleleOne(id: Types.ObjectId) {
     return await this.courseModel.updateOne({ id }).exec();
   }
+  async aggregate(pipelines) {
+    await this.courseModel.aggregate(pipelines);
+  }
 }

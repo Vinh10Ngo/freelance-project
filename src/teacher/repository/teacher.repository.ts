@@ -36,4 +36,7 @@ export class TeacherRepository {
   async deleleOne(id: Types.ObjectId) {
     return await this.teacherModel.deleteOne({ _id: id }).exec();
   }
+  async aggregate(pipelines) {
+    await this.teacherModel.aggregate(pipelines);
+  }
 }

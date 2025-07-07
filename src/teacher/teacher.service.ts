@@ -26,4 +26,7 @@ export class TeacherService {
   async remove(id: Types.ObjectId) {
     return await this.teacherRepository.deleleOne(id);
   }
+  async aggregate(pipelines) {
+    return await this.teacherRepository.aggregate(pipelines);
+  }
 }

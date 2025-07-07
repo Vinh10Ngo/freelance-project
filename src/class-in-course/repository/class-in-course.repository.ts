@@ -40,4 +40,7 @@ export class ClassInCourseRepository {
   async deleleOne(id: Types.ObjectId) {
     return await this.classInCourseModel.updateOne({ id }).exec();
   }
+  async aggregate(pipelines) {
+    await this.classInCourseModel.aggregate(pipelines);
+  }
 }

@@ -26,4 +26,7 @@ export class VoucherService {
   async remove(id: Types.ObjectId) {
     return await this.voucherRepository.deleleOne(id);
   }
+  async aggregate(pipelines) {
+    return await this.voucherRepository.aggregate(pipelines);
+  }
 }
