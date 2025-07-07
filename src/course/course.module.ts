@@ -11,5 +11,6 @@ import { MongooseModule } from '@nestjs/mongoose';
   ],
   controllers: [CourseController],
   providers: [CourseService, CourseRepository],
+  exports: [CourseService],
 })
 export class CourseModule {}

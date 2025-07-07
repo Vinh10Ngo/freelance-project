@@ -16,5 +16,6 @@ import {
   ],
   controllers: [ClassInCourseController],
   providers: [ClassInCourseService, ClassInCourseRepository],
+  exports: [ClassInCourseService],
 })
 export class ClassInCourseModule {}
