@@ -6,7 +6,7 @@ import { AuthModule } from './auth/auth.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { UploadModule } from './upload/upload.module';
 import { ConfigModule } from '@nestjs/config';
-import { CoursesModule } from './course/course.module';
+import { CourseModule } from './course/course.module';
 import { ClassInCourseModule } from './class-in-course/class-in-course.module';
 import { StudentModule } from './student/student.module';
 import { TeacherModule } from './teacher/teacher.module';
@@ -24,7 +24,7 @@ import { PaymentModule } from './payment/payment.module';
     UsersModule,
     AuthModule,
     UploadModule,
-    CoursesModule,
+    CourseModule,
     ClassInCourseModule,
     StudentModule,
     TeacherModule,

@@ -5,7 +5,7 @@ import { CourseRepository } from './repository/course.repository';
 import { Types } from 'mongoose';
 
 @Injectable()
-export class CoursesService {
+export class CourseService {
   constructor(private readonly courseRepository: CourseRepository) {}
   async create(createCourseDto: CreateCourseDto) {
     return await this.courseRepository.create(createCourseDto);
