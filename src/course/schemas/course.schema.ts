@@ -21,7 +21,7 @@ export class Course extends Document {
   startDate: Date;
   @Prop()
   endDate?: Date;
-  @Prop()
+  @Prop({ type: Types.ObjectId, ref: 'ClassInCourse' })
   classInCourse: [Types.ObjectId];
 }
 export type CourseDocument = Course & Document;
