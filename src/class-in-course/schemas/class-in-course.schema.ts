@@ -13,7 +13,7 @@ export class ClassInCourse extends Document {
   @Prop()
   description: string;
 
-  @Prop()
+  @Prop({ type: Types.ObjectId, ref: 'Course' })
   course: Types.ObjectId;
   @Prop()
   startDate: Date;

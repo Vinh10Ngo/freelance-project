@@ -24,7 +24,7 @@ export class ClassInCourseRepository {
   }
 
   async findById(id: Types.ObjectId): Promise<ClassInCourseDocument | null> {
-    return await this.classInCourseModel.findOne({ id }).exec();
+    return await this.classInCourseModel.findById(id).populate('course').exec();
   }
 
   async findByOneEmail(email: string): Promise<ClassInCourseDocument | null> {
