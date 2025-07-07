@@ -6,24 +6,24 @@ import { Types } from 'mongoose';
 
 @Injectable()
 export class PaymentService {
-  constructor(private readonly voucherRepository: PaymentRepository) {}
+  constructor(private readonly paymentRepository: PaymentRepository) {}
   async create(createPaymentDto: CreatePaymentDto) {
-    return await this.voucherRepository.create(createPaymentDto);
+    return await this.paymentRepository.create(createPaymentDto);
   }
 
   async findAll() {
-    return await this.voucherRepository.findAll();
+    return await this.paymentRepository.findAll();
   }
 
   async findOne(id: Types.ObjectId) {
-    return await this.voucherRepository.findById(id);
+    return await this.paymentRepository.findById(id);
   }
 
   async update(id: Types.ObjectId, updatePaymentDto: UpdatePaymentDto) {
-    return await this.voucherRepository.updateOne(id, updatePaymentDto);
+    return await this.paymentRepository.updateOne(id, updatePaymentDto);
   }
 
   async remove(id: Types.ObjectId) {
-    return await this.voucherRepository.deleleOne(id);
+    return await this.paymentRepository.deleleOne(id);
   }
 }

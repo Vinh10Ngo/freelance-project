@@ -4,10 +4,10 @@ import { Document, Types } from 'mongoose';
 
 @Schema({ timestamps: true })
 export class Payment {
-  @Prop()
+  @Prop({ type: Types.ObjectId, ref: 'Student', required: true })
   student: Types.ObjectId;
 
-  @Prop()
+  @Prop({ type: Types.ObjectId, ref: 'ClassInCourse', required: true })
   classInCourse: Types.ObjectId;
 
   @Prop({ required: true })
@@ -16,7 +16,7 @@ export class Payment {
   @Prop()
   originalAmount?: number;
 
-  @Prop({ type: Types.ObjectId, ref: 'Payment' })
+  @Prop({ type: Types.ObjectId, ref: 'Voucher' })
   voucher?: Types.ObjectId;
 
   @Prop({ required: true })

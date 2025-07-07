@@ -20,7 +20,12 @@ export class PaymentRepository {
   }
 
   async findById(id: Types.ObjectId): Promise<PaymentDocument | null> {
-    return await this.paymentModel.findOne({ id }).exec();
+    return await this.paymentModel
+      .findById(id)
+      .populate('student')
+      .populate('classInCourse')
+      .populate('voucher')
+      .exec();
   }
 
   async findByOneEmail(email: string): Promise<PaymentDocument | null> {
