@@ -37,6 +37,6 @@ export class VoucherRepository {
     return await this.voucherModel.deleteOne({ _id: id }).exec();
   }
   async aggregate(pipelines) {
-    await this.voucherModel.aggregate(pipelines);
+    return await this.voucherModel.aggregate(pipelines);
   }
 }

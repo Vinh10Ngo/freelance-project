@@ -42,6 +42,6 @@ export class PaymentRepository {
     return await this.paymentModel.deleteOne({ _id: id }).exec();
   }
   async aggregate(pipelines) {
-    await this.paymentModel.aggregate(pipelines);
+    return await this.paymentModel.aggregate(pipelines);
   }
 }

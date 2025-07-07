@@ -35,6 +35,6 @@ export class CourseRepository {
     return await this.courseModel.updateOne({ id }).exec();
   }
   async aggregate(pipelines) {
-    await this.courseModel.aggregate(pipelines);
+    return await this.courseModel.aggregate(pipelines).exec();
   }
 }

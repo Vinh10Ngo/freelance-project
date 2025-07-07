@@ -42,6 +42,6 @@ export class StudentRepository {
     return await this.studentModel.deleteOne({ _id: id }).exec();
   }
   async aggregate(pipelines) {
-    await this.studentModel.aggregate(pipelines);
+    return await this.studentModel.aggregate(pipelines);
   }
 }

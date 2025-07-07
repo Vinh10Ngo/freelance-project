@@ -41,6 +41,6 @@ export class ClassInCourseRepository {
     return await this.classInCourseModel.updateOne({ id }).exec();
   }
   async aggregate(pipelines) {
-    await this.classInCourseModel.aggregate(pipelines);
+    return await this.classInCourseModel.aggregate(pipelines);
   }
 }

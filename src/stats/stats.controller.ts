@@ -6,6 +6,6 @@ export class StatsController {
   constructor(private readonly statsService: StatsService) {}
   @Get('/overview')
   getOverview() {
-    return this.statsService.overview();
+    return this.statsService.overviewAggregate();
   }
 }

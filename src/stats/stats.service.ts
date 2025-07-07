@@ -3,6 +3,10 @@ import { ClassInCourseService } from 'src/class-in-course/class-in-course.servic
 import { CourseService } from 'src/course/course.service';
 import { PaymentService } from 'src/payment/payment.service';
 import { StudentService } from 'src/student/student.service';
+import { totalCoursesPipeline } from '../course/pipelines/total-course.pipeline';
+import { totalClassesPipeline } from 'src/class-in-course/pipelines/total-classes.pipeline';
+import { totalStudentsPipeline } from 'src/student/pipelines/total-students.pipeline';
+import { totalPaymentsPipeline } from 'src/payment/pipelines/total-payment.pipeline';
 
 @Injectable()
 export class StatsService {
@@ -12,25 +16,19 @@ export class StatsService {
     private readonly studentService: StudentService,
     private readonly paymentService: PaymentService,
   ) {}
-  async overview() {
-    let list = {};
-    const courses = await this.courseService.findAll();
-    const classes = await this.classInCourseService.findAll();
-    const students = await this.studentService.findAll();
-    const payments = await this.paymentService.findAll();
-    const totalCourses: number = courses.length;
-    const totalClasses: number = classes.length;
-    const totalStudents: number = students.length;
-    const totalpayments = payments.reduce(
-      (acc, payment) => acc + payment.amount,
-      0,
-    );
-    list = {
-      totalCourses: totalCourses,
-      totalClasses: totalClasses,
-      totalStudents: totalStudents,
-      totalpayments: totalpayments,
+  async overviewAggregate() {
+    const [totalCourses, totalClasses, totalStudents, totalPayments] =
+      await Promise.all([
+        this.courseService.aggregate(totalCoursesPipeline),
+        this.classInCourseService.aggregate(totalClassesPipeline),
+        this.studentService.aggregate(totalStudentsPipeline),
+        this.paymentService.aggregate(totalPaymentsPipeline),
+      ]);
+    return {
+      totalCourses: totalCourses[0]?.totalCourses || 0,
+      totalClasses: totalClasses[0]?.totalClasses || 0,
+      totalStudents: totalStudents[0]?.totalStudents || 0,
+      totalPayments: totalPayments[0]?.totalPayments || 0,
     };
-    return list;
   }
 }
